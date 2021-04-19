@@ -13,8 +13,8 @@ import { MessageService } from '../message.service';
 // 英雄列表組件
 export class HeroesComponent implements OnInit {
   // heroes = HEROES;
-  heroes: Hero[] | undefined;
-  selectedHero: Hero | undefined;
+  heroes: Hero[] = [];
+  selectedHero?: Hero | undefined;
 
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 
@@ -31,8 +31,8 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-        // tslint:disable-next-line: deprecation
-        .subscribe(heroes => this.heroes = heroes);
+      // tslint:disable-next-line: deprecation
+      .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {
